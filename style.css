@@ -1,0 +1,123 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(./images/background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+.player-board{
+    background-color:#fff;
+    max-width: 750px;
+    height: 400px;
+    position: relative;
+    min-width: 100px;
+    margin: 3rem auto;
+}
+img{
+    width: 70px;
+    position: absolute;
+    left: 310px;
+    top: 100px;
+    box-shadow: 2px 2px 2px 2px  rgb(230, 226, 226);
+}
+.btn-new{
+    position: absolute;
+    top: 20px;
+    left: 300px;
+}
+.btn-roll{
+    position: absolute;
+    left: 300px;
+    bottom: 80px;
+}
+.btn-hold{
+    position: absolute;
+    left: 320px;
+    bottom: 60px;
+    top: 340px;
+}
+
+ .player-0-panel{
+    position: absolute;
+    top: 100px;
+    left: 80px;
+}
+.player-1-panel{
+    position: absolute;
+    top: 100px;
+    right: 80px;
+} 
+.player-1-panel .current-box,.player-0-panel .current-box{
+    position: absolute;
+    top: 200px;
+    
+}
+#current-1{
+    position: absolute;
+    right: 45px;
+    margin-top: 0.5rem;
+    color: #fff;
+}
+#current-0{
+    position: absolute;
+    left: 40px;
+    color: #fff;
+    margin-top: 0.5rem;
+}
+.current-box{
+    background: rgb(235, 42, 42);
+    height: 60px;
+    padding: 1rem 1rem 0 1rem;
+}
+.player-name{
+    font-size: 30px;
+    color: rgb(160, 158, 158);
+}
+.global-score{
+    font-size: 75px;
+    color: rgb(204, 88, 88);
+    margin-left: 1rem;
+}
+button{
+    border: none;
+    background: transparent;
+    font-size: 17px;
+    color: rgb(160, 158, 158);
+    cursor: pointer;
+}
+.ion{
+    color: rgb(204, 88, 88);
+    margin-right: 0.4rem;
+    font-size: 20px;
+}
+
+.active{
+    background: rgb(248, 246, 246);
+    width: 300px;
+    padding-left: 5rem;
+    height: 300px;
+    overflow: hidden;
+    
+}
+.active::after{
+    content: "";
+    width: 10px;
+    height: 10px;
+    float: left;
+    margin-top: -4rem;
+    margin-left: -2rem;
+    border-radius: 50%;
+    background: red;
+    /* display: inline-block; */
+}
+.active>div{
+    color: black;
+}
+
+.winner{background-color: #f7f7f7;}
+.winner .player-name{font-weight: 300; color: #EB4D4D;}
