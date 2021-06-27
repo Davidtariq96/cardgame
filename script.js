@@ -1,4 +1,4 @@
-var scores, roundScore, activePlayer,gamePlaying;
+var scores, roundScore, activePlayer,gamePlaying,holdScore;
 
 
 startGame();
@@ -26,18 +26,21 @@ document.querySelector(".btn-hold").addEventListener("click", function() {
     document.querySelector("#current-" + activePlayer).textContent = "0";
     // add current scores to Global score
     scores [activePlayer] += roundScore;
+    if (holdScore){
     document.querySelector("#score-" + activePlayer).textContent = scores[activePlayer]
+    }
         
         // Check if a USER have won the game
-        if (scores[activePlayer] >=20){
+        if (scores[activePlayer] >=100){
          document.querySelector("#player-" + activePlayer).textContent = "WINNER!"
          document.querySelector(".dice").style.display = "none";
          document.querySelector(".player-" + activePlayer + "-panel").classList.add("winner")
          document.querySelector(".player-" + activePlayer + "-panel").classList.remove("active")
-
          gamePlaying = false;
-         } else{
+         holdScore = false;
+         }  else{
             next();
+            
          }
         
 })
@@ -48,7 +51,6 @@ document.querySelector(".btn-new").addEventListener("click", function() {
 })
 
 //  A function to change the activePlayer
-
 function next() {
     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
     document.querySelector(".player-0-panel").classList.toggle("active")
@@ -67,6 +69,7 @@ function startGame() {
     activePlayer = 0;
     // A state variable to tell if our game is ON or has ENDED
     gamePlaying = true;
+    holdScore= true;
     document.querySelector(".dice").style.display = "none";
 
     document.querySelector("#current-0" ).textContent = "0";
@@ -81,5 +84,4 @@ function startGame() {
     document.querySelector(".player-0-panel").classList.remove("active")
     document.querySelector(".player-1-panel").classList.remove("active")
     document.querySelector(".player-0-panel").classList.add("active")
-    // document.querySelector(".player-" + activePlayer + "-panel").classList.add("active")
 }

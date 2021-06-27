@@ -19,7 +19,8 @@ body{
     margin: 3rem auto;
 }
 img{
-    width: 70px;
+    max-width: 70px;
+    min-width: 20px;
     position: absolute;
     left: 310px;
     top: 100px;
@@ -90,6 +91,9 @@ button{
     color: rgb(160, 158, 158);
     cursor: pointer;
 }
+button:focus{
+    outline: none;
+}
 .ion{
     color: rgb(204, 88, 88);
     margin-right: 0.4rem;
@@ -98,7 +102,8 @@ button{
 
 .active{
     background: rgb(248, 246, 246);
-    width: 300px;
+    max-width: 300px;
+    min-width: 100px;
     padding-left: 5rem;
     height: 300px;
     overflow: hidden;
@@ -121,3 +126,31 @@ button{
 
 .winner{background-color: #f7f7f7;}
 .winner .player-name{font-weight: 300; color: #EB4D4D;}
+
+@media(max-width:480px){
+    img{
+        left: 100px;
+        top: 410px;
+    }
+    .btn-new{
+        top: 20px;
+        left: 140px;
+    }
+    .player-0-panel{
+        top: 100px;
+        left: 40px;
+    }
+    .player-1-panel{
+        top: 500px;
+        left: 40px;
+        
+    } 
+    .active{
+        margin-left: 0;
+        padding: 3rem 3rem;
+    }
+    .btn-roll,.btn-hold{
+        left: 250px;
+    }
+    
+}
