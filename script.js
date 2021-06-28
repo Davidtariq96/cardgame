@@ -1,6 +1,6 @@
 var scores, roundScore, activePlayer,gamePlaying,holdScore;
 
-
+var previousRoll;
 startGame();
 
 document.querySelector(".btn-roll").addEventListener("click",function(){
@@ -11,12 +11,19 @@ document.querySelector(".btn-roll").addEventListener("click",function(){
      diceRoll.style.display = "block";
      
      diceRoll.src = 'dice-'+ dice +'.png';
-    if (dice > 1){
+     
+     if( dice === 6 && previousRoll === 6){
+         scores[activePlayer] = 0;
+        document.querySelector("#score-" + activePlayer).textContent = "0";
+         next ();
+     }else if (dice > 1){
         roundScore += dice;
         document.querySelector("#current-"+ activePlayer).textContent = roundScore;
     } else{
         next();
     }
+
+     previousRoll = dice;
     }
     
 })
@@ -29,9 +36,9 @@ document.querySelector(".btn-hold").addEventListener("click", function() {
     if (holdScore){
     document.querySelector("#score-" + activePlayer).textContent = scores[activePlayer]
     }
-        
+        var maxScore = document.querySelector(".maxScore");
         // Check if a USER have won the game
-        if (scores[activePlayer] >=100){
+        if (scores[activePlayer] >=maxScore.value){
          document.querySelector("#player-" + activePlayer).textContent = "WINNER!"
          document.querySelector(".dice").style.display = "none";
          document.querySelector(".player-" + activePlayer + "-panel").classList.add("winner")
