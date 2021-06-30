@@ -36,9 +36,15 @@ document.querySelector(".btn-hold").addEventListener("click", function() {
     if (holdScore){
     document.querySelector("#score-" + activePlayer).textContent = scores[activePlayer]
     }
-        var maxScore = document.querySelector(".maxScore");
+        var maxScore = document.querySelector(".maxScore").value;
+        var winScore;
+        if(maxScore){
+            winScore = maxScore;
+        }else{
+            winScore = 100;
+        }
         // Check if a USER have won the game
-        if (scores[activePlayer] >=maxScore.value){
+        if (scores[activePlayer] >= winScore){
          document.querySelector("#player-" + activePlayer).textContent = "WINNER!"
          document.querySelector(".dice").style.display = "none";
          document.querySelector(".player-" + activePlayer + "-panel").classList.add("winner")
